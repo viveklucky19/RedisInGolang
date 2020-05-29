@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+//RedisHandler... Handler Function for Redis
 func RedisHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch true {
@@ -25,6 +26,7 @@ func RedisHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
+//ReturnResponse... common function to set response
 func ReturnResponse(w http.ResponseWriter, data interface{}) {
 	returnJson, _ := json.Marshal(data)
 	w.Header().Set("Access-Control-Allow-Origin", "*")

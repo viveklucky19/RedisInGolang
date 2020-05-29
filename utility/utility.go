@@ -12,6 +12,7 @@ const (
 	ConstSuccess     = "Success"
 )
 
+//SetReturnData... common function to set Return data
 func SetReturnData(err error, data interface{}) (returnData ReturnJson) {
 
 	returnData.Code = ConstSuccessCode
