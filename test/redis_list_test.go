@@ -8,7 +8,7 @@ import (
 
 func Test_Lpush_001(t *testing.T) {
 
-	var r redis.Redis
+	var r redis.RedisListInt
 	r.RedisList = append(r.RedisList, 1, 2, 3, 4)
 	result := []int{5, 1, 2, 3, 4}
 	r.Lpush(5)
@@ -20,7 +20,7 @@ func Test_Lpush_001(t *testing.T) {
 }
 
 func Test_Rpush_002(t *testing.T) {
-	var r redis.Redis
+	var r redis.RedisListInt
 	r.RedisList = append(r.RedisList, 1, 2, 3, 4)
 	result := []int{1, 2, 3, 4, 5}
 	r.Rpush(5)
@@ -32,7 +32,7 @@ func Test_Rpush_002(t *testing.T) {
 }
 
 func Test_Lpop_003(t *testing.T) {
-	var r redis.Redis
+	var r redis.RedisListInt
 	r.RedisList = append(r.RedisList, 1, 2, 3, 4)
 	result := []int{2, 3, 4}
 	r.Lpop()
@@ -44,7 +44,7 @@ func Test_Lpop_003(t *testing.T) {
 }
 
 func Test_Rpop_004(t *testing.T) {
-	var r redis.Redis
+	var r redis.RedisListInt
 	r.RedisList = append(r.RedisList, 1, 2, 3, 4)
 	result := []int{1, 2, 3}
 	r.Rpop()

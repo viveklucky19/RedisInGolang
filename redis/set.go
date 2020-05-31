@@ -25,16 +25,11 @@ type RedisStringSet struct {
 
 func (r *RedisStringSet) Sadd(s string) interface{} {
 
-	//check if s is alreay present in set
+	//check if s is already present in set
 
 	if isPresent, _ := utility.IsValuePresentInSlice(r.RedisSet, s); isPresent {
 		return r.RedisSet
 	}
-	// for _, v := range r.RedisSet {
-	// 	if s == v {
-	// 		return r.RedisSet
-	// 	}
-	// }
 
 	r.RedisSet = append(r.RedisSet, s)
 
@@ -55,12 +50,6 @@ func (r *RedisStringSet) Srem(s string) int {
 	if isPresent, i := utility.IsValuePresentInSlice(r.RedisSet, s); isPresent {
 		index = i
 	}
-	// for i, v := range r.RedisSet {
-	// 	if s == v {
-	// 		index = i
-	// 		break
-	// 	}
-	// }
 
 	if index != -1 {
 		newSet = append(newSet, r.RedisSet[0:index]...)
