@@ -28,6 +28,8 @@ func main() {
 	//Endpoints for Redis Set
 	http.HandleFunc("/sadd", handlers.RedisSetHandler)
 	http.HandleFunc("/scard", handlers.RedisSetHandler)
+	http.HandleFunc("/srem", handlers.RedisSetHandler)
+	http.HandleFunc("/sunion", handlers.RedisSetHandler)
 
 	//local server to run in port 8080
 	log.Fatal(http.ListenAndServe(Port, nil))

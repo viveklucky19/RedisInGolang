@@ -12,6 +12,8 @@ type ReturnJson struct {
 }
 
 const (
+	ConstMethodGET   = "GET"
+	ConstMethodPOST  = "POST"
 	ConstSuccessCode = "200"
 	ConstFailCode    = "400"
 	ConstSuccess     = "Success"
@@ -38,4 +40,16 @@ func ReturnResponse(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(returnJson)
+}
+
+//IsValuePresentInSlice... function to check if string slice contaings the string
+func IsValuePresentInSlice(s []string, val string) (bool, int) {
+
+	for i, v := range s {
+		if val == v {
+			return true, i
+		}
+	}
+
+	return false, -1
 }

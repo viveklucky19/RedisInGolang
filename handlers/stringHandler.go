@@ -11,17 +11,17 @@ import (
 func RedisStringHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch true {
-	case strings.Contains(r.URL.Path, "/append") && r.Method == "GET":
+	case strings.Contains(r.URL.Path, "/append") && r.Method == utility.ConstMethodGET:
 		data := r.URL.Query().Get("data")
 		utility.ReturnResponse(w, controllers.AppendString(data))
-	case strings.Contains(r.URL.Path, "/setnx") && r.Method == "GET":
+	case strings.Contains(r.URL.Path, "/setnx") && r.Method == utility.ConstMethodGET:
 		keyValue := r.URL.Query().Get("keyValue")
 		data := r.URL.Query().Get("data")
 		utility.ReturnResponse(w, controllers.SetIfNotExist(keyValue, data))
-	case strings.Contains(r.URL.Path, "/incr") && r.Method == "GET":
+	case strings.Contains(r.URL.Path, "/incr") && r.Method == utility.ConstMethodGET:
 		data := r.URL.Query().Get("data")
 		utility.ReturnResponse(w, controllers.Incr(data))
-	case strings.Contains(r.URL.Path, "/getRange") && r.Method == "GET":
+	case strings.Contains(r.URL.Path, "/getRange") && r.Method == utility.ConstMethodGET:
 		data := r.URL.Query().Get("data")
 		start := r.URL.Query().Get("start")
 		stop := r.URL.Query().Get("stop")
