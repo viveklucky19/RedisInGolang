@@ -40,4 +40,4 @@ Steps to execute:
 4) Hit Get method with url "localhost:8080/lpush?data=32" in postman or browser and see the results. Similarly you can see perform other operations as well.
 
 
-Postman Collect Link : https://www.getpostman.com/collections/e4cec9911c07fc2418a3
+Postman Collection Link : https://www.getpostman.com/collections/e4cec9911c07fc2418a3
